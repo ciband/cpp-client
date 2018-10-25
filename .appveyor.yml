@@ -7,10 +7,14 @@ environment:
   - CONFIGURATION: Debug
   - CONFIGURATION: Release
   
-build_script:
-- cmd: >-
-    cmake -G "Visual Studio 15 2017"
-    cmake --build . --config %CONFIGURATION%
+install:
+    - git submodule update --init --recursive
+
+before_build:
+    - cmake -G "Visual Studio 15 2017 Win64" .
+
+build:
+  project: $(APPVEYOR_BUILD_FOLDER)\$(APPVEYOR_PROJECT_NAME).sln
     
 test_script:
 - cmd: '%APPVEYOR_BUILD_FOLDER%\Bin\%CONFIGURATION%\Ark-Cpp-Client-tests.exe'
