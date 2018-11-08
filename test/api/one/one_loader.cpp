@@ -25,7 +25,7 @@ TEST(api, test_one_loader_autoconfigure)
     ASSERT_STREQ("ARK", token);
 
     const char* symbol = network["symbol"];
-    ASSERT_STREQ("Ѧ", symbol);
+    ASSERT_STREQ(u8"Ѧ", symbol);
 
     const char* explorer = network["explorer"];
     ASSERT_STREQ("https://explorer.ark.io", explorer);

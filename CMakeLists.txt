@@ -30,8 +30,9 @@ if (MSVC)
 		-D_SCL_SECURE_NO_WARNINGS
 		-DNOMINMAX
 	)
+  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /utf-8")
 elseif (UNIX)
-	set (CMAKE_CXX_FLAGS "-std=c++11")
+	set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 endif()
 
 include_directories("${PROJECT_SOURCE_DIR}")
