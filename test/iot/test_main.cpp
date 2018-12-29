@@ -2,7 +2,7 @@
 
 #if (defined PLATFORMIO && defined UNIT_TEST)
 
-#include <AUnit.h>
+#include "gtest/gtest.h"
 
 #if (defined ESP8266 || defined ESP32)
 
@@ -46,6 +46,16 @@ void setup_network()
     Serial.println(WiFi.localIP());
 }
 
+void setup_gtest() {
+  // Since Arduino doesn't have a command line, fake out the argc/argv arguments
+  int argc = 1;
+  const auto arg0 = "PlatformIO";
+  char* argv0 = const_cast<char*>(arg0);
+  char** argv = &argv0;
+
+  testing::InitGoogleTest(&argc, argv);
+}
+
 }
 
 #else
@@ -62,12 +72,12 @@ void setup() {
 	while (!Serial); // for the Arduino Leonardo/Micro only
 	delay(100);
 	setup_network();
-	aunit::TestRunner::setTimeout(0);
+  setup_gtest();
 	delay(1000);
 }
 
 void loop() {
-	aunit::TestRunner::run();
+  RUN_ALL_TESTS();
 }
 
 #endif

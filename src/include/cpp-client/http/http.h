@@ -24,9 +24,9 @@ protected:
 public:
   virtual ~IHTTP() { }
 
-  virtual const char* host() const /*noexcept*/ = 0;
-  virtual int port() const /*noexcept*/ = 0;
-  virtual int api_version() const /*noexcept*/ = 0;
+  virtual const char* host() const noexcept = 0;
+  virtual int port() const noexcept = 0;
+  virtual int api_version() const noexcept = 0;
 
   virtual bool setHost(
     const char *const newHost,
@@ -76,9 +76,9 @@ class AbstractHTTP : public IHTTP
         virtual ~AbstractHTTP() {};
 
         /**/
-        const char* host() const /*noexcept*/ override { return this->host_; };
-        int port() const /*noexcept*/ override { return this->port_; };
-        int api_version() const /*noexcept*/ override { return this->api_version_; }
+        const char* host() const noexcept override { return this->host_; };
+        int port() const noexcept override { return this->port_; };
+        int api_version() const noexcept override { return this->api_version_; }
 
         bool setHost(
                 const char *const newHost,
