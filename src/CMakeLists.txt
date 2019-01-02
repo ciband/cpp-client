@@ -3,8 +3,6 @@ cmake_minimum_required(VERSION 3.2.2)
 
 project(Ark-Cpp-Client-lib)
 
-set(BUILD_SHARED_LIBS OFF)
-
 hunter_add_package(CURL)
 find_package(CURL CONFIG REQUIRED)
 

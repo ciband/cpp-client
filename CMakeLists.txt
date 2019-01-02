@@ -6,8 +6,8 @@ set(CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/cmake/toolchain.cmake")
 include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/HunterGate.cmake")
 
 HunterGate(
-    URL "https://github.com/ruslo/hunter/archive/v0.23.29.tar.gz"
-    SHA1 "797be99a8a4f4666766257563fad8aa3aa032da2"
+    URL "https://github.com/ruslo/hunter/archive/v0.23.83.tar.gz"
+    SHA1 "12dec078717539eb7b03e6d2a17797cba9be9ba9"
 )
 project(Ark-Cpp-Client)
 
